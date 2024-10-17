@@ -54,3 +54,14 @@ def display_final_order(order, price_details, total_price):
 
 # Call the function with the final order, price details, and total price
 display_final_order(final_order, price_details, total_price)
+the final price of the order is 228
+The final order, including the quantity and price of each product, is as follows:
+
+Product A: Quantity 2, Price 20
+Product B: Quantity 5, Price 40
+Product C: Quantity 7, Price 14
+Product D: Quantity 4, Price 48
+Product H: Quantity 6, Price 54
+Product M: Quantity 3, Price 30
+Product N: Quantity 5, Price 15
+Product P: Quantity 1, Price 7

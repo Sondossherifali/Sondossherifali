@@ -1,0 +1,70 @@
+class Student:
+    def __init__(self, name, code, town, gpa):
+        self.name = name
+        self.code = code
+        self.town = town
+        self.gpa = gpa
+
+    def __str__(self):
+        return f"Name: {self.name}, Code: {self.code}, Town: {self.town}, GPA: {self.gpa}"
+
+class StudentManagementSystem:
+    def __init__(self):
+        self.students = {}  # Dictionary to store students with `code` as key
+
+    def add_student(self, name, code, town, gpa):
+        if code in self.students:
+            print("A student with this code already exists.")
+        else:
+            self.students[code] = Student(name, code, town, gpa)
+            print("Student added successfully.")
+
+    def delete_student(self, code):
+        if code in self.students:
+            del self.students[code]
+            print("Student deleted successfully.")
+        else:
+            print("No student found with this code.")
+
+    def display_students(self):
+        if not self.students:
+            print("No students to display.")
+        else:
+            print("Student Records:")
+            for code, student in self.students.items():
+                print(student)
+
+    def get_student(self, code):
+        return self.students.get(code, "No student found with this code.")
+def main():
+    sms = StudentManagementSystem()
+    while True:
+        print("\n--- Student Management System ---")
+        print("1. Add Student")
+        print("2. Delete Student")
+        print("3. Display Students")
+        print("4. Get Student by Code")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            name = input("Enter name: ")
+            code = input("Enter code: ")
+            town = input("Enter town: ")
+            gpa = input("Enter GPA: ")
+            sms.add_student(name, code, town, gpa)
+        elif choice == "2":
+            code = input("Enter the code of the student to delete: ")
+            sms.delete_student(code)
+        elif choice == "3":
+            sms.display_students()
+        elif choice == "4":
+            code = input("Enter the code of the student: ")
+            print(sms.get_student(code))
+        elif choice == "5":
+            print("Exiting system. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+if __name__ == "__main__":
+    main()
